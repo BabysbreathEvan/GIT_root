@@ -1,0 +1,5 @@
+#define U_BOOT_DATE "Nov 20 2017"
+#define U_BOOT_TIME "13:56:04"
+#define U_BOOT_TZ "+0800"
+#define U_BOOT_DMI_DATE "11/20/2017"
+#define U_BOOT_BUILD_DATE 0x20171120
