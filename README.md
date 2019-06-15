@@ -1,4 +1,6 @@
 # GIT_root
-----debug version
--v0.1 README.txt
--v0.2 say something
+
+Modify history.
+
+1. the repo can be works well.
+
