@@ -1,0 +1,64 @@
+# git commands 
+
+git config --global user.name "[name]"
+git config --global user.email "[email address]"
+git config --global color.ui auto
+
+git init [project-name]
+git clone [url]
+
+git add
+git rm
+git mv
+
+git status
+git diff
+git log 
+git log --oneline
+git log --author=Name --oneline -5
+git log --reverse --oneline
+git show 
+
+git commit  -m ""
+git commit -s --amend 
+
+git reset HEAD
+git reset commit
+git reset --hard commit-id
+
+git push
+git pull
+
+git push -u origin master
+git push origin master
+
+
+ssh-keygen -t rsa -C "your_email@youremail.com"
+ssh -T git@github.com
+
+git remote -v
+git remote add [shortname] [url]
+git remote add origin url
+
+git branch -a
+
+#create a new branch
+git branch branch-name 
+
+git checkout -b branch-name 
+
+git merge
+
+git branch -d branch-name 
+
+
+git stash  ?
+git stash pop
+git stash list
+git stash drop
+
+git fetch bookmark
+git merge bootmark/branch
+
+git tag -a v0.0
+git tag -a tagname -m lable
