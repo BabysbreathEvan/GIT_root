@@ -1,1 +1,5 @@
 The postinstall intercept hook 'update_font_cache' failed, details in /home/tony/work/yocto/poky/build/tmp/work/qemux86_64-poky-linux/core-image-minimal/1.0-r0/temp/log.do_rootfs
+
+
+
+bitbake -c cleansstate font_cache  (try)
