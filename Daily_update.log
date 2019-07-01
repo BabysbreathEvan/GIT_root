@@ -1,1 +1,9 @@
+1. Kernel hardening
 
+The kernel itself has protections enabled to make it more difficult to become compromised.
+
+https://wiki.ubuntu.com/Security/Features#Kernel_Hardening 
+https://wiki.debian.org/Hardening
+https://wiki.gentoo.org/wiki/Project:Hardened
+https://wiki.gentoo.org/wiki/Hardened/Toolchain
+https://www.suse.com/documentation/sles-12/book_hardening/data/book_hardening.html
