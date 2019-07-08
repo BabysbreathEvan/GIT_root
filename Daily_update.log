@@ -7,3 +7,15 @@ https://wiki.debian.org/Hardening
 https://wiki.gentoo.org/wiki/Project:Hardened
 https://wiki.gentoo.org/wiki/Hardened/Toolchain
 https://www.suse.com/documentation/sles-12/book_hardening/data/book_hardening.html
+
+2. AGL application framework deamon / homescreen . 
+
+https://wiki.automotivelinux.org/agl-distro/app-framework
+https://docs.automotivelinux.org/docs/en/master/getting_started/reference/getting-started/getting-started-welcome.html
+https://docs.automotivelinux.org/docs/en/master/apis_services/reference/af-main/0-introduction.html
+https://gerrit.automotivelinux.org/gerrit/admin/repos
+https://paul.pub/automotive-linux/#id-%E4%BA%BA%E6%9C%BA%E7%95%8C%E9%9D%A2%E6%A1%86%E6%9E%B6
+
+3. yocto. meta-gplv2
+
+http://git.yoctoproject.org/cgit/cgit.cgi/meta-gplv2/
