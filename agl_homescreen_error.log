@@ -1,0 +1,5 @@
+	Line 192: Jul 12 03:38:10  afbd-agl-identity-service@0.1-c9a2819[1099]: /bin/mkdir: cannot create directory `/home/0': Permission denied
+	Line 195: Jul 12 03:38:10 afbd-agl-service-nfc@1.0-a840056[1097]: /bin/mkdir: cannot create directory `/home/0': Permission denied
+	Line 196: Jul 12 03:38:10 afbd-homescreen-service@0.1[1100]: /bin/mkdir: cannot create directory `/home/0': Permission denied
+	Line 197: Jul 12 03:38:10 afbd-launcher@0.1[1101]: /bin/mkdir: cannot create directory `/home/0': Permission denied
+	Line 264: Jul 12 03:38:10  afbd-windowmanager-service@0.1[1098]: /bin/mkdir: cannot create directory `/home/0': Permission denied
