@@ -19,3 +19,18 @@ https://paul.pub/automotive-linux/#id-%E4%BA%BA%E6%9C%BA%E7%95%8C%E9%9D%A2%E6%A1
 3. yocto. meta-gplv2
 
 http://git.yoctoproject.org/cgit/cgit.cgi/meta-gplv2/
+
+4. smack smackfs  failed.
+
+https://github.com/intel/meta-intel-iot-security/tree/master/meta-security-smack
+
+issue: smack.cfg cannot applied for kernel config. 
+
+solution:
+    a. enable AGL and meta-meta-intel-iot-security layer.
+    b. just enable meta-intel-iot-security. 
+    
+QA: 
+    maybe can use 001 code rb?  to check . 
+    001 how works ?
+
