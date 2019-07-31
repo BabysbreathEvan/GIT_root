@@ -35,3 +35,7 @@ QA:
     001 how works ?
     001 security layer ?  agl  or ? 
 
+5. AGL upgrade 
+    homescreen.   afm-user-session
+    afm-system-daemon.service
+    afm-system-daemon
