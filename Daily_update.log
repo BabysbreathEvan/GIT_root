@@ -39,3 +39,7 @@ QA:
     homescreen.   afm-user-session
     afm-system-daemon.service
     afm-system-daemon
+
+6. systemd fstab 
+    persist mount ? 
+    
