@@ -10,4 +10,43 @@ https://wiki.tizen.org/Security/Tizen_2.X_Smack_Developer_Guide
 3. smack WhitePaper
 http://schaufler-ca.com/yahoo_site_admin/assets/docs/SmackWhitePaper.257153003.pdf
 
-4.
+4.AGL application framework
+https://docs.automotivelinux.org/docs/en/halibut/architecture/reference/security/part-5/5-AppFw.html
+
+5. AGL AGL-security-framework-review
+https://iot.bzh/download/public/2017/AMMQ1Tokyo/AGL-security-framework-review.pdf
+
+6.AGL systemd
+https://iot.bzh/download/public/2017/AMM-Dresden/AGL-systemd.pdf
+
+7. Smack rule loading
+During boot, Smack rules are loaded by 2 systemd services. 
+First, /usr/lib/systemd/system/smack.service which is for platform modules.
+
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/bin/smackload-fast
+ ExecStop=/usr/bin/smackctl clear
+ RemainAfterExit=yes
+ 
+ [Install]
+ WantedBy=basic.target
+ 
+ smackload-fast is a command line utility for loading all Smack rule files in /etc/smack/accesses.d/
+ smackctl clear is a command line utility for clearing all Smack rules in the kernel memory
+ Second /usr/lib/systemd/system/smack-rules.service which is for applications. These rules are assigned during application installation by the rule templates in smack-privilege-config.
+ 
+  [Unit]
+ Description=Smack rules loading
+ ConditionSecurity=smack
+ Before=starter.service
+ 
+ [Service]
+ Type=oneshot
+ ExecStart = /bin/bash -c '/usr/bin/sqlite3 /opt/dbspace/.rules-db.db3 < /usr/share/privilege-control/db/load-rules-db.sql | /usr/bin/smack_rules_buffer > /smack/change-rule'
+ 
+ [Install]
+ WantedBy=multi-user.target
+ 
+ /opt/dbspace/.rules-db.db3 describes all Smack rules for applications.
+ 
