@@ -1,3 +1,24 @@
+7.0908
+
+nfc  error 
+libneardal.so.0
+
+:/# systemctl  status afm-service-agl-service-nfc--1.0-a840056--main@0.ser
+vice  --no-page  -l
+● afm-service-agl-service-nfc--1.0-a840056--main@0.service - Binding for handling NFC access controls
+   Loaded: loaded (/var/local/lib/systemd/system/afm-user-session@.target.wants/../afm-service-agl-service-nfc--1.0-a840056--main@.service; disabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Wed 2019-08-07 10:20:40 UTC; 4s ago
+  Process: 1509 ExecStart=/usr/bin/afb-daemon --name afbd-agl-service-nfc@1.0-a840056 --rootdir=/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056 --workdir=/home/0/app-data/agl-service-nfc --no-httpd --binding=/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so --ws-server=sd:nfc (code=exited, status=1/FAILURE)
+  Process: 1508 ExecStartPre=/bin/mkdir -p /home/0/app-data/agl-service-nfc (code=exited, status=0/SUCCESS)
+ Main PID: 1509 (code=exited, status=1/FAILURE)
+
+Aug 07 10:20:40  systemd[1]: Starting Binding for handling NFC access controls...
+Aug 07 10:20:40  afbd-agl-service-nfc@1.0-a840056[1509]:  ERROR: binding [/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so] not loadable: libneardal.so.0: cannot open shared object file: No such file or directory [/poky/build/tmp-glibc/work/aarch64-agl-linux/af-binder/halibut+gitAUTOINC+91de2500d8-r0/git/src/afb-api-so.c:83,load_binding]
+Aug 07 10:20:40  afbd-agl-service-nfc@1.0-a840056[1509]:  ERROR: can't start the binding /var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so [poky/build/tmp-glibc/work/aarch64-agl-linux/af-binder/halibut+gitAUTOINC+91de2500d8-r0/git/src/main-afb-daemon.c:178,apiset_start_list]
+Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.service: Main process exited, code=exited, status=1/FAILURE
+Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.service: Failed with result 'exit-code'.
+Aug 07 10:20:40  systemd[1]: Failed to start Binding for handling NFC access controls.
+
 1. Kernel hardening
 
 The kernel itself has protections enabled to make it more difficult to become compromised.
