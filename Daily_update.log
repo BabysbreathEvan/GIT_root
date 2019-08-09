@@ -19,6 +19,8 @@ Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.se
 Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.service: Failed with result 'exit-code'.
 Aug 07 10:20:40  systemd[1]: Failed to start Binding for handling NFC access controls.
 
+systemd[1]: Failed to start Binding for handling NFC access controls.
+
 1. Kernel hardening
 
 The kernel itself has protections enabled to make it more difficult to become compromised.
