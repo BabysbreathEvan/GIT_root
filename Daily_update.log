@@ -1,6 +1,16 @@
-7.0908
+8. smack app rule. 
 
-nfc  error 
+echo "User::App::launcher User::App::agl-service-nfc  rwx "    > /sys/fs/smackfs/load2 
+echo "User::App::launcher User::App::windowmanager-service  rwx "    > /sys/fs/smackfs/load2 
+
+/usr/share/security-manager/policy/app-rules-template.smack 
+
+How to apply the app rule smack file ? such as  
+subject="User::App::agl-identity-service" object="User::App::agl-service-nfc"
+
+??? 
+
+7. nfc  error 
 libneardal.so.0
 
 :/# systemctl  status afm-service-agl-service-nfc--1.0-a840056--main@0.ser
@@ -20,6 +30,7 @@ Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.se
 Aug 07 10:20:40  systemd[1]: Failed to start Binding for handling NFC access controls.
 
 systemd[1]: Failed to start Binding for handling NFC access controls.
+Solution: add neardal  to rootfs. 
 
 1. Kernel hardening
 
