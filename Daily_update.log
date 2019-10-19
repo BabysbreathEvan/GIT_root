@@ -1,3 +1,23 @@
+12. cynara
+
+28 [Unit]
+ 29 Description=Upgrade Cynara Policy
+ 30 ConditionPathExists=/var/lib/need_update_cynara_policy
+ 31 ConditionPathIsReadWrite=/var
+ 32 After=var.mount
+ 33 Before=cynara.service security-manager.service
+ 34
+ 35 [Service]
+ 36 Type=oneshot
+ 37 RemainAfterExit=yes
+ 38 ExecStartPre=/usr/sbin/cynara-db-migration upgrade -f 0.0.0 -t 0.14.0
+ 39 ExecStart=/usr/bin/security-manager-policy-reload
+ 40 ExecStartPost=-/bin/rm -rf /var/lib/need_update_cynara_policy
+ 41
+ 42 [Install]
+ 43 WantedBy=sysinit.target
+
+
 11. crypto
 modprobe  tcrypt
   958.209305] alg: skcipher: Failed to load transform for ecb(blowfish): -2
