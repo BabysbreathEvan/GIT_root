@@ -1,1 +1,43 @@
+2. 
+1. OE compile order. 
 
+do_setscene
+do_fetch
+do_unpack
+do_patch
+do_configure
+do_qa_configure
+do_compile
+do_stage
+do_install
+do_package
+do_populate_staging
+do_package_write_deb
+do_package_write
+do_distribute_sources
+do_qa_staging
+do_build
+do_rebuild
+
+基本上每种动作都可以添加其_append,_prepend操作：
+do_configure_prepend ()
+do_compile_prepend ()
+python do_compile_prepend ()
+do_stage_prepend()
+do_install_prepend()
+do_package_prepend()
+python populate_packages_prepend ()
+带有python的函数，其函数内容是使用python定义的，否则使用shell 语法定义。
+
+do_compile这些函数都是在openembedded的classes中定义的，在bitbake中没有对这些进行定义。
+这说明，bitbake只是oe更底层的一个工具，oe是基于bitbake架构来完成的。
+
+stuff/openembedded/classes:
+base.bbclass          oe_runmake就是在这里定义的，所有的其他bbclass可能都是继承于本base的
+autotools.bbclass     autotools_do_configure
+image.bbclass         可以看出image是集成与rootfs的
+导出了这个函数，子类就可以调用这些函数了(猜测，只有导出，子类才可以调用):
+EXPORT_FUNCTIONS do_compile do_install do_stage do_configure
+通过addtask的方式来调整各个task之间的顺序:
+addtask sizecheck before do_install after do_compile
+MIRRORS_prepend () ，可以用来修改本bb的mirror
