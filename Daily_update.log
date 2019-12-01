@@ -1,3 +1,9 @@
+13. kernel
+
+kernel cmdline.   __setup 
+
+bsp: add file , python read file.
+
 12. cynara
 
 28 [Unit]
