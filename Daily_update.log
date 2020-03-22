@@ -8,6 +8,9 @@ https://blog.csdn.net/weixin_43255133/article/details/84025214
 
 openssl:
 https://www.jianshu.com/p/a0fe30ccea37
+openssl rsautl -sign
+
+sign x.509 key 
 
 
 13. kernel
