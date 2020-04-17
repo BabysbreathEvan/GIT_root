@@ -24,146 +24,16 @@ openssl rsautl -sign
 sign x.509 key 
 
 
-13. kernel
-
-kernel cmdline.   __setup 
-
-bsp: add file , python read file.
-
-12. cynara
-
-28 [Unit]
- 29 Description=Upgrade Cynara Policy
- 30 ConditionPathExists=/var/lib/need_update_cynara_policy
- 31 ConditionPathIsReadWrite=/var
- 32 After=var.mount
- 33 Before=cynara.service security-manager.service
- 34
- 35 [Service]
- 36 Type=oneshot
- 37 RemainAfterExit=yes
- 38 ExecStartPre=/usr/sbin/cynara-db-migration upgrade -f 0.0.0 -t 0.14.0
- 39 ExecStart=/usr/bin/security-manager-policy-reload
- 40 ExecStartPost=-/bin/rm -rf /var/lib/need_update_cynara_policy
- 41
- 42 [Install]
- 43 WantedBy=sysinit.target
 
 
-11. crypto
-modprobe  tcrypt
-  958.209305] alg: skcipher: Failed to load transform for ecb(blowfish): -2
-[  958.249534] alg: skcipher: Failed to load transform for cbc(blowfish): -2
-[  958.281490] alg: skcipher: Failed to load transform for ctr(blowfish): -2
-[  958.328550] alg: skcipher: Failed to load transform for lrw(twofish): -2
-[  958.376108] alg: skcipher: Failed to load transform for ecb(serpent): -2
-[  958.417834] alg: skcipher: Failed to load transform for cbc(serpent): -2
-[  958.454974] alg: skcipher: Failed to load transform for ctr(serpent): -2
-[  958.479150] alg: skcipher: Failed to load transform for lrw(serpent): -2
-[  958.534591] alg: skcipher: Failed to load transform for xts(serpent): -2
-[  958.561989] alg: skcipher: Failed to load transform for lrw(aes): -2
-[  958.611543] alg: skcipher: Failed to load transform for ecb(cast5): -2
-[  958.648976] alg: skcipher: Failed to load transform for cbc(cast5): -2
-[  958.676728] alg: skcipher: Failed to load transform for ctr(cast5): -2
-[  958.705372] alg: skcipher: Failed to load transform for ecb(cast6): -2
-[  958.734704] alg: skcipher: Failed to load transform for cbc(cast6): -2
-[  958.789692] alg: skcipher: Failed to load transform for ctr(cast6): -2
-[  958.813799] alg: skcipher: Failed to load transform for lrw(cast6): -2
-[  958.883831] alg: skcipher: Failed to load transform for xts(cast6): -2
-[  958.907016] alg: hash: Failed to load transform for michael_mic: -2
-[  958.941051] alg: skcipher: Failed to load transform for ecb(tea): -2
-[  958.970910] alg: skcipher: Failed to load transform for ecb(xtea): -2
-[  959.017701] alg: skcipher: Failed to load transform for ecb(khazad): -2
-[  959.040042] alg: hash: Failed to load transform for wp512: -2
-[  959.077477] alg: hash: Failed to load transform for wp384: -2
-[  959.118525] alg: hash: Failed to load transform for wp256: -2
-[  959.153284] alg: skcipher: Failed to load transform for ecb(tnepres): -2
-[  959.192778] alg: skcipher: Failed to load transform for ecb(anubis): -2
-[  959.231267] alg: skcipher: Failed to load transform for cbc(anubis): -2
-[  959.254745] alg: hash: Failed to load transform for tgr192: -2
-[  959.278952] alg: hash: Failed to load transform for tgr160: -2
-[  959.301694] alg: hash: Failed to load transform for tgr128: -2
-[  959.342018] alg: skcipher: Failed to load transform for ecb(xeta): -2
-[  959.375645] alg: skcipher: Failed to load transform for pcbc(fcrypt): -2
-[  959.416929] alg: skcipher: Failed to load transform for ecb(camellia): -2
-[  959.455313] alg: skcipher: Failed to load transform for cbc(camellia): -2
-[  959.485279] alg: skcipher: Failed to load transform for ctr(camellia): -2
-[  959.514394] alg: skcipher: Failed to load transform for lrw(camellia): -2
-[  959.576703] alg: skcipher: Failed to load transform for xts(camellia): -2
-[  959.596246] alg: skcipher: Failed to load transform for salsa20: -2
-[  959.622844] alg: hash: Failed to load transform for rmd128: -2
-[  959.647092] alg: hash: Failed to load transform for rmd160: -2
-[  959.667003] alg: hash: Failed to load transform for rmd256: -2
-[  959.685820] alg: hash: Failed to load transform for rmd320: -2
-[  959.724850] alg: skcipher: Failed to load transform for ecb(seed): -2
-[  959.731576] alg: No test for zlib (zlib)
-[  959.761850] alg: aead: Failed to load transform for rfc4309(ccm(aes)): -2
-[  959.787314] alg: hash: Failed to load transform for crct10dif: -2
-[  959.810483] alg: hash: Failed to load transform for sha3-224: -2
-[  959.831342] alg: hash: Failed to load transform for sha3-256: -2
-[  959.855397] alg: hash: Failed to load transform for sha3-384: -2
-[  959.890127] alg: hash: Failed to load transform for sha3-512: -2
-[  959.925525] alg: hash: Failed to load transform for hmac(rmd128): -2
-[  959.959522] alg: hash: Failed to load transform for hmac(rmd160): -2
-[  960.013227] alg: hash: Failed to load transform for vmac(aes): -2
-[  960.053683] alg: hash: Failed to load transform for hmac(crc32): -2
-[  960.100931] alg: hash: Failed to load transform for hmac(sha3-224): -2
-[  960.128536] alg: hash: Failed to load transform for hmac(sha3-256): -2
-[  960.155577] alg: hash: Failed to load transform for hmac(sha3-384): -2
-[  960.192333] alg: hash: Failed to load transform for hmac(sha3-512): -2
-[  960.245932] tcrypt: one or more tests failed!
-
-10. login
-Last login: Wed Aug  7 14:08:57 UTC 2019 on tty2 
-
-9. first bootup issue.
-
-kadun:  wlan/saxxx-asoc-snd soc:qcom,msm-audio-apr:qcom,q6core-audio:sound-adp-star: saxxxx_ssr_enable: setting snd_card to ONLINE 
-systend: 
-[FAILED] Failed to start Login Service.
-See 'systemctl status systemd-logind.service' for details. 
-logind.service  http://www.jinbuguo.com/systemd/systemd-logind.html
-
-XDG_RUNING_DIR:  
 https://askubuntu.com/questions/872792/what-is-xdg-runtime-dir
 http://manpages.ubuntu.com/manpages/xenial/en/man8/pam_systemd.8.html
 https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html#variables
 http://man7.org/linux/man-pages/man8/pam_env.8.html
 http://www.jinbuguo.com/systemd/pam_systemd.html#
 
-8. smack app rule. 
 
-echo "User::App::launcher User::App::agl-service-nfc  rwx "    > /sys/fs/smackfs/load2 
-echo "User::App::launcher User::App::windowmanager-service  rwx "    > /sys/fs/smackfs/load2 
 
-/usr/share/security-manager/policy/app-rules-template.smack 
-
-How to apply the app rule smack file ? such as  
-subject="User::App::agl-identity-service" object="User::App::agl-service-nfc"
-
-??? 
-
-7. nfc  error 
-libneardal.so.0
-
-:/# systemctl  status afm-service-agl-service-nfc--1.0-a840056--main@0.ser
-vice  --no-page  -l
-● afm-service-agl-service-nfc--1.0-a840056--main@0.service - Binding for handling NFC access controls
-   Loaded: loaded (/var/local/lib/systemd/system/afm-user-session@.target.wants/../afm-service-agl-service-nfc--1.0-a840056--main@.service; disabled; vendor preset: enabled)
-   Active: failed (Result: exit-code) since Wed 2019-08-07 10:20:40 UTC; 4s ago
-  Process: 1509 ExecStart=/usr/bin/afb-daemon --name afbd-agl-service-nfc@1.0-a840056 --rootdir=/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056 --workdir=/home/0/app-data/agl-service-nfc --no-httpd --binding=/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so --ws-server=sd:nfc (code=exited, status=1/FAILURE)
-  Process: 1508 ExecStartPre=/bin/mkdir -p /home/0/app-data/agl-service-nfc (code=exited, status=0/SUCCESS)
- Main PID: 1509 (code=exited, status=1/FAILURE)
-
-Aug 07 10:20:40  systemd[1]: Starting Binding for handling NFC access controls...
-Aug 07 10:20:40  afbd-agl-service-nfc@1.0-a840056[1509]:  ERROR: binding [/var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so] not loadable: libneardal.so.0: cannot open shared object file: No such file or directory [/poky/build/tmp-glibc/work/aarch64-agl-linux/af-binder/halibut+gitAUTOINC+91de2500d8-r0/git/src/afb-api-so.c:83,load_binding]
-Aug 07 10:20:40  afbd-agl-service-nfc@1.0-a840056[1509]:  ERROR: can't start the binding /var/local/lib/afm/applications/agl-service-nfc/1.0-a840056/lib/libafm-nfc-binding.so [poky/build/tmp-glibc/work/aarch64-agl-linux/af-binder/halibut+gitAUTOINC+91de2500d8-r0/git/src/main-afb-daemon.c:178,apiset_start_list]
-Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.service: Main process exited, code=exited, status=1/FAILURE
-Aug 07 10:20:40  systemd[1]: afm-service-agl-service-nfc--1.0-a840056--main@0.service: Failed with result 'exit-code'.
-Aug 07 10:20:40  systemd[1]: Failed to start Binding for handling NFC access controls.
-
-systemd[1]: Failed to start Binding for handling NFC access controls.
-Solution: add neardal  to rootfs. 
 
 1. Kernel hardening
 
@@ -187,26 +57,8 @@ https://paul.pub/automotive-linux/#id-%E4%BA%BA%E6%9C%BA%E7%95%8C%E9%9D%A2%E6%A1
 
 http://git.yoctoproject.org/cgit/cgit.cgi/meta-gplv2/
 
-4. smack smackfs  failed.
 
-https://github.com/intel/meta-intel-iot-security/tree/master/meta-security-smack
 
-issue: smack.cfg cannot applied for kernel config. 
 
-solution:
-    a. enable AGL and meta-meta-intel-iot-security layer.
-    b. just enable meta-intel-iot-security. 
-    
-QA: 
-    maybe can use 001 code rb?  to check . 
-    001 how works ?
-    001 security layer ?  agl  or ? 
 
-5. AGL upgrade 
-    homescreen.   afm-user-session
-    afm-system-daemon.service
-    afm-system-daemon
-
-6. systemd fstab 
-    persist mount ? 
     
